@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.mt.amateras.AmaterasSequenceDiagram;
+
 
 public class javaTest {
 	String [] strPercents = {" %","% "};
 	public static void main(String []args){
 		new javaTest();
 	}
-	private javaTest(){
+	public javaTest(){
 		String str="15 		%";
 		dayin(subString0(str));
-
+		AmaterasSequenceDiagram asd = new AmaterasSequenceDiagram();
+		asd.createAmaterasSequenceDiagram();
 	}
 	
 	public String subString0(String str){
