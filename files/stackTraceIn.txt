@@ -1,5 +1,19 @@
-KeyboardLayoutDialogFragment.getView
-KeyboardLayoutDialogFragment.getView
-AbsListView.obtainView
-ListView.addViewBelow
-ListView.scrollListItemsBy
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at com.lenovo.powersetting.apprestriction.appmanager.ApplicationsAdapter.getView(ApplicationsAdapter.java:168)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.AbsListView.obtainView(AbsListView.java:2474)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.ListView.makeAndAddView(ListView.java:1920)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.ListView.fillDown(ListView.java:717)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.ListView.fillFromTop(ListView.java:778)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.ListView.layoutChildren(ListView.java:1701)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.AbsListView.onLayout(AbsListView.java:2235)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.view.View.layout(View.java:16975)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.view.ViewGroup.layout(ViewGroup.java:5590)
+
+01-05 22:44:32.303  4129  4129 E M_T_AT  : 	at android.widget.RelativeLayout.onLayout(RelativeLayout.java:1189)

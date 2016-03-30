@@ -14,6 +14,7 @@ public class AmaterasSequenceDiagram{
 	String str_end="(1.java:1)";
 	String newline = "\r\n";// \r\n即为换行  
 	String line = "";
+	boolean needInsertNewLine = true;
 	public void createAmaterasSequenceDiagram(){
 		try{
             File fileToRead = new File(inFileName);
@@ -26,8 +27,12 @@ public class AmaterasSequenceDiagram{
             BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言  
 	        BufferedWriter out = new BufferedWriter(new FileWriter(fileToWrite));  
             while ((line = br.readLine()) != null) {// line = br.readLine(); // 一次读入一行数据  
-                out.write(str_start+line+str_end+newline); 
-                dayin(str_start+line+str_end+newline); 
+            	if(needInsertNewLine){
+            		out.write(newline);
+            		needInsertNewLine=false;
+            	}
+            	line=reGetLine(line);
+            	out.write(line);             
     	        out.flush(); // 把缓存区内容压入文件
             }  
 			br.close();
@@ -36,6 +41,19 @@ public class AmaterasSequenceDiagram{
             e.printStackTrace();
         }
 	}
+	
+	public String reGetLine(String str){
+		if(null==str){
+			return "";
+		}else if(str.equals("")){
+			return "";
+		}
+		if(str.toLowerCase().contains(str_start.toLowerCase())){
+			return str.substring(str.indexOf("at "))+newline;
+		}
+		return str_start+str+str_end+newline;
+	}
+	
 	public static void dayin(Object obj){
 		System.out.println(obj);
 	}
