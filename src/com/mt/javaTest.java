@@ -1,5 +1,6 @@
 package com.mt;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -93,7 +94,52 @@ public class javaTest {
     	}
 		return strProper;
 	}
-
+	
+	//批量函数名称转换
+	public void reNameFile(){ 
+		int count;
+        String reg1 = "\\([0-9]{1}\\)";//将"abc(2).mp3"转换为"2_abc.mp3"
+        String reg2 = "\\([0-9]{2}\\)";//将"abc(12).mp3"转换为"12_abc.mp3"
+        Pattern pattern1 = Pattern.compile(reg1);
+        Pattern pattern2 = Pattern.compile(reg2);
+        File file = new File("12");     
+        String fileName;
+        String strTemp=null;
+        if(file.isDirectory()){ 
+            File[] files = file.listFiles(); 
+            count = files.length;
+            for(int i=0; i<count; i++){ 
+            	fileName = files[i].getAbsolutePath();//包括了文件名
+            	for(int j=count;j>0;j--){
+            		if(fileName.contains("("+j+")")){
+            			if(j>9){
+            				strTemp = fileNameModify(fileName,j,reg2,pattern2);
+            			}
+            			else{
+            				strTemp = fileNameModify(fileName,j,reg1,pattern1);
+            			}
+            			break;
+            		}
+            	}
+            	
+            	dayin(strTemp);
+            	//dayin(files[i].getAbsolutePath());
+            	if(null!=strTemp){
+            		boolean flag = files[i].renameTo(new File(strTemp));
+            	}
+            } 
+        }        
+ 
+    }
+    public String fileNameModify(String fileName,int num,String reg,Pattern pattern){
+        String strTemp=null;
+    	Matcher matcher = pattern.matcher(fileName);
+        while (matcher.find()) {
+        	strTemp = fileName.replaceAll(reg, "");
+        	strTemp = strTemp.replace("12"+File.separator, "12"+File.separator+num+"_");
+        }
+        return strTemp;
+    }
 	
     static class MergedItem {
     	String a;
