@@ -2,6 +2,7 @@ package com.mt;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,10 +15,13 @@ public class javaTest {
 		new javaTest();
 	}
 	public javaTest(){
-		String str="15 		%";
-		dayin(subString0(str));
+		//1、正则表达式
+		//String str="15 		%";dayin(subString0(str));
+		//String str2="	 ListView.scrollListItemsBy 	 	ListView2.scrollListItems2By3";subString(str2);
+		//2、生成eclipse可解析的调用栈信息
 		AmaterasSequenceDiagram asd = new AmaterasSequenceDiagram();
-		asd.createAmaterasSequenceDiagram();
+		asd.howTocreateAmaterasSequenceDiagram();
+
 	}
 	
 	public String subString0(String str){
@@ -41,14 +45,13 @@ public class javaTest {
 	    return pattern.matcher(str).find();
 	} 
 	
-	public void subString(){
-    	String str = "<abcd efg>higklmnopq<rstu vwxyz>";
-        String reg = "[a-zA-Z]{10}";
+	public void subString(String str){
+        String reg = "[0-9a-zA-Z]+\\.[0-9a-zA-Z]+";
         Pattern p = Pattern.compile(reg);
         Matcher m = p.matcher(str);
         while(m.find()){
             String s = m.group();
-            System.out.println(s);
+            dayin(s);
         }
 	}
 	
