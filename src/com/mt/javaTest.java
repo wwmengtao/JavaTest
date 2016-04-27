@@ -1,8 +1,12 @@
 package com.mt;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +27,9 @@ public class javaTest {
 		AmaterasSequenceDiagram asd = new AmaterasSequenceDiagram();
 		asd.howTocreateAmaterasSequenceDiagram();
 		//3、列举出文件名称
-		listDrawableFileNames();
+		//listDrawableFileNames();
+		//4、读文件内容，重新组合之后再写入
+		readAndWriteFile();
 		
 		
 		dayin(Integer.toHexString(524290));
@@ -197,7 +203,52 @@ public class javaTest {
         }
 	}
 	
+	public void readAndWriteFile(){
+		String inFileName = "files"+File.separator+"in.txt";
+		String outFileName = "files"+File.separator+"out.txt";
+		String line = null;
+		StringBuffer strBuffer0 = new StringBuffer();
+		StringBuffer strBuffer1 = new StringBuffer();
+        File fileToRead = new File(inFileName);
+		File fileToWrite = new File(outFileName);
+		if(fileToWrite.exists()){
+			fileToWrite.delete();
+		}
+		try{
+			fileToWrite.createNewFile(); // 创建新文件
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(fileToRead)); // 建立一个输入流对象reader  
+            BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言  
+	        BufferedWriter out = new BufferedWriter(new FileWriter(fileToWrite));  
+            while ((line = br.readLine()) != null) {// line = br.readLine(); // 一次读入一行数据  
+            	if(isValidString(line)){  
+					String [] strs = line.split(" ");
+					if(2==strs.length){
+						strBuffer0.append(strs[0]+",");
+						strBuffer1.append(strs[1]+",");
+					}
+            	}
+            }  
+        	out.write(strBuffer0.toString()+"\n");        
+        	out.write(strBuffer1.toString()+"\n");         
+	        out.flush(); // 把缓存区内容压入文件
+			br.close();
+	        out.close(); // 最后记得关闭文件
+		} catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
 	
+	String reg = "[a-zA-Z]+\\ [a-zA-Z]+";
+    Pattern mPattern = Pattern.compile(reg);
+    Matcher mMatcher = null;
+	public boolean isValidString(String str){
+        mMatcher = mPattern.matcher(str);
+        while(mMatcher.find()){
+        	//dayin("find:"+mMatcher.group());
+        	return true;
+        }
+        return false;
+	}
 	
 	public void typename(Object obj){
 		dayin(obj.getClass().toString());
