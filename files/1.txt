@@ -1,0 +1,46 @@
+company
+
+theme_wallpaper custom_theme_wallpaper
+
+theme_lockscreen custom_theme_lockscreen
+
+theme_callscreen custom_theme_callscreen
+
+theme_launcher custom_theme_launcher
+
+import_theme_data
+
+online filter_themes_online
+
+loading settings_safetylegal_activity_loading
+
+preview_data_incomplete
+
+apply_fail_time_out //need translation
+
+crop wallpreview_cut
+
+delete delete_download
+
+ok wallpaper_tailor_button
+
+cancle delete_dialog_cancel
+
+filenoexist wallpreview_filenoexist
+
+wallpaper_select_animation
+
+popsort_hottest
+
+popsort_newest
+
+comment_nomore
+
+downloading ring_downloading
+
+/////////
+ADD:
+custom_theme_ideafriend
+custom_theme_boot_shut
+custom_theme_systemui
+custom_theme_font

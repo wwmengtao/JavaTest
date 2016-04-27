@@ -10,6 +10,7 @@ import com.mt.amateras.AmaterasSequenceDiagram;
 
 
 public class javaTest {
+	public static final int BASE_SYSTEM_ASYNC_CHANNEL = 0x00011000;
 	String [] strPercents = {" %","% "};
 	public static void main(String []args){
 		new javaTest();
@@ -21,7 +22,11 @@ public class javaTest {
 		//2、生成eclipse可解析的调用栈信息
 		AmaterasSequenceDiagram asd = new AmaterasSequenceDiagram();
 		asd.howTocreateAmaterasSequenceDiagram();
-
+		//3、列举出文件名称
+		listDrawableFileNames();
+		
+		
+		dayin(Integer.toHexString(524290));
 	}
 	
 	public String subString0(String str){
@@ -175,6 +180,25 @@ public class javaTest {
 			
 		}
 	}
+	
+	public void listDrawableFileNames(){ 
+        String  dirName = "D:\\workspace\\JavaTest\\files\\drawable";
+        File file = new File(dirName);    
+        String fileName;
+        if(file.isDirectory()){ 
+            File[] files = file.listFiles(); 
+            for(int i=0; i<files.length; i++){ 
+            	fileName = files[i].getName();
+            	if(fileName.contains(".xml")){
+            		dayin("\""+fileName.replace(".xml", "\","));
+            	}
+            	
+            }
+        }
+	}
+	
+	
+	
 	public void typename(Object obj){
 		dayin(obj.getClass().toString());
 	}
