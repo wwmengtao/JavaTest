@@ -29,10 +29,10 @@ public class javaTest {
 		//3、列举出文件名称
 		//listDrawableFileNames();
 		//4、读文件内容，重新组合之后再写入
-		readAndWriteFile();
-		
-		
-		dayin(Integer.toHexString(524290));
+		//readAndWriteFile();
+		//5、十进制、十六进制转换
+		dayin(parseHexString("11"));
+		dayin(toHexString(17));
 	}
 	
 	public String subString0(String str){
@@ -253,6 +253,14 @@ public class javaTest {
 	public void typename(Object obj){
 		dayin(obj.getClass().toString());
 	}
+	public static String toHexString(int mInt){
+		return Integer.toHexString(mInt);
+	}
+	
+	//eg:parseHexString("11"), result is 17
+	public static int parseHexString(String mData){
+		return Integer.parseInt(mData,16);
+	}	
 	public static void dayin2(Object obj){
 		System.out.print(obj);
 	}
