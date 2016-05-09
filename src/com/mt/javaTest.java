@@ -31,8 +31,8 @@ public class javaTest {
 		//4、读文件内容，重新组合之后再写入
 		//readAndWriteFile();
 		//5、十进制、十六进制转换
-		dayin(parseHexString("11"));
-		dayin(toHexString(17));
+		//dayin(parseHexString("11"));
+		//dayin(toHexString(17));
 	}
 	
 	public String subString0(String str){
