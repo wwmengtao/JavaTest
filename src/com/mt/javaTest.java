@@ -24,8 +24,8 @@ public class javaTest {
 		//String str="15 		%";dayin(subString0(str));
 		//String str2="	 ListView.scrollListItemsBy 	 	ListView2.scrollListItems2By3";subString(str2);
 		//2、生成eclipse可解析的调用栈信息
-		AmaterasSequenceDiagram asd = new AmaterasSequenceDiagram();
-		asd.howTocreateAmaterasSequenceDiagram();
+		//AmaterasSequenceDiagram asd = new AmaterasSequenceDiagram();
+		//asd.howTocreateAmaterasSequenceDiagram();
 		//3、列举出文件名称
 		//listDrawableFileNames();
 		//4、读文件内容，重新组合之后再写入
