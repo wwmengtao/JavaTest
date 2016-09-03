@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.mt.javaTest;
+
 public class AmaterasSequenceDiagram{
 	/*-------------------------------------------------------------*/
 	String str_start = "at ";
@@ -21,6 +23,14 @@ public class AmaterasSequenceDiagram{
 	String reg = "[0-9a-zA-Z]+\\.[0-9a-zA-Z]+";
     Pattern mPattern = Pattern.compile(reg);
     Matcher mMatcher = null;
+    
+	public static void main(String []args){
+		new AmaterasSequenceDiagram();
+	}
+	public AmaterasSequenceDiagram(){
+		howTocreateAmaterasSequenceDiagram();
+	}
+    
 	/*-------------------------------------------------------------*/
 	/**
 	 * howTocreateAmaterasSequenceDiagram：演示如何根据inFileName内容获取eclipse可以绘制的调用栈信息
