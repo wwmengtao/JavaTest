@@ -73,11 +73,18 @@ public class fileOperate {
         return false;
 	}
 
-
+	public static void main(String []args){
+		new fileOperate();
+	}
+	
+	public fileOperate(){
+		reNameFile1();
+	}
+	
 	//批量函数名称转换
 	public void reNameFile1(){ 
-		String strStart = "【城市一家】宋太宗（第二部）";
-        String  dirName = "D:\\BaiduYun\\王立群读宋史宋太宗第二部";
+		String strStart = "Kangxi.Dynasty";
+        String  dirName = "D:\\BaiduNetDisk\\康熙王朝";
         File file = new File(dirName);    
         String fileName;
         String fileNameTemp;
@@ -85,7 +92,7 @@ public class fileOperate {
             File[] files = file.listFiles(); 
             for(int i=0; i<files.length; i++){ 
             	fileName = files[i].getAbsolutePath();//包括了文件名
-            	fileNameTemp = fileName.replace(strStart, "");
+            	fileNameTemp = fileName.replace(strStart, "康熙王朝");
             	javaTest.dayin(fileName);
             	javaTest.dayin(fileNameTemp);
             	if(null!=fileNameTemp){
